@@ -1,23 +1,49 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { dropdown, Iconly, bifile, material, fluent, iconHome, Vector, Rectangle } from '../asset';
 
 function SizeBar() {
   const [catelogy, setCatelogy] = useState(false);
   const [project, setProject] = useState(false);
   const [compact, setCompact] = useState(false);
+  const active = 'bg-[#F0F7FF] text-[#1890FF]';
+  const [organization, setOrganization] = useState(false);
+  const [topic, setTopic] = useState(false);
+  const [turn, setTurn] = useState(false);
+  const [career, setCareer] = useState(false);
+  const [course, setCourse] = useState(false);
+  const [class_, setClass_] = useState(false);
+  const [memeber, setMemeber] = useState(false);
   return (
     <>
       {!compact ? (
         <div className="w-[210px] text-[#42526E] border-r border-[#EBEBEB] relative">
           <img src={iconHome} alt="anh" className="h-[81px] block mx-auto w-[50px]" />
           <ul className="pt-[42px] px-4">
-            <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+            <Link
+              to="/"
+              className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                memeber && active
+              }`}
+              onClick={() => {
+                setMemeber(true);
+                setClass_(false);
+                setCourse(false);
+                setCareer(false);
+                setTurn(false);
+                setTopic(false);
+                setOrganization(false);
+              }}
+            >
               <img src={Iconly} alt="anh" className="pr-2" />
               <span className="grow">Quản trị thành viên</span>
-            </li>
+            </Link>
             <li
               className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer"
-              onClick={() => setCatelogy(!catelogy)}
+              onClick={() => {
+                setCatelogy(!catelogy);
+                setProject(false);
+              }}
             >
               <img src={bifile} alt="anh" className="pr-2" />
               <span className="grow">Danh mục</span>
@@ -25,20 +51,65 @@ function SizeBar() {
             </li>
             {catelogy && (
               <ul>
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                    career && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(false);
+                    setCareer(true);
+                    setTurn(false);
+                    setTopic(false);
+                    setOrganization(false);
+                  }}
+                >
                   Ngành nghề
-                </li>
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+                </Link>
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                    course && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(true);
+                    setCareer(false);
+                    setTurn(false);
+                    setTopic(false);
+                    setOrganization(false);
+                  }}
+                >
                   Khóa
-                </li>
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+                </Link>
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                    class_ && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(true);
+                    setCourse(false);
+                    setCareer(false);
+                    setTurn(false);
+                    setTopic(false);
+                    setOrganization(false);
+                  }}
+                >
                   Lớp
-                </li>
+                </Link>
               </ul>
             )}
             <li
               className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer"
-              onClick={() => setProject(!project)}
+              onClick={() => {
+                setProject(!project);
+                setCatelogy(false);
+              }}
             >
               <img src={material} alt="anh" className="pr-2" />
               <span className="grow">Đồ án</span>
@@ -46,18 +117,60 @@ function SizeBar() {
             </li>
             {project && (
               <ul>
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                    turn && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(false);
+                    setCareer(false);
+                    setTurn(true);
+                    setTopic(false);
+                    setOrganization(false);
+                  }}
+                >
                   Quản lý đợt
-                </li>
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+                </Link>
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                    topic && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(false);
+                    setCareer(false);
+                    setTurn(false);
+                    setTopic(true);
+                    setOrganization(false);
+                  }}
+                >
                   Kho đề tài
-                </li>
+                </Link>
               </ul>
             )}
-            <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer">
+            <Link
+              to="/organization"
+              className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
+                organization && active
+              }`}
+              onClick={() => {
+                setMemeber(false);
+                setClass_(false);
+                setCourse(false);
+                setCareer(false);
+                setTurn(false);
+                setTopic(false);
+                setOrganization(true);
+              }}
+            >
               <img src={fluent} alt="anh" className="pr-2" />
               <span className="grow">Tổ chức</span>
-            </li>
+            </Link>
           </ul>
           <div className="hover:opacity-70" onClick={() => setCompact(!compact)}>
             <img src={Rectangle} alt="anh" className="absolute bottom-[80px] -right-[14px]" />
@@ -68,13 +181,25 @@ function SizeBar() {
         <div className="w-[60px] text-[#42526E] border-r border-[#EBEBEB] relative">
           <img src={iconHome} alt="anh" className="h-[81px] block mx-auto w-[50px]" />
           <ul className="pt-[77px] px-2">
-            <li className="h-[20px] mb-[38px]">
+            <Link
+              to="/"
+              className={`h-[20px] mb-[38px] ${memeber && active}`}
+              onClick={() => {
+                setMemeber(true);
+                setClass_(false);
+                setCourse(false);
+                setCareer(false);
+                setTurn(false);
+                setTopic(false);
+                setOrganization(false);
+              }}
+            >
               <img
                 src={Iconly}
                 alt="anh"
                 className="mx-auto p-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] rounded cursor-pointer"
               />
-            </li>
+            </Link>
             <li
               className="h-[20px] mb-[38px]  relative before:content-[''] before:block before:absolute before:w-full before:h-[43px] before:left-8"
               onMouseMove={() => setCatelogy(true)}
@@ -92,15 +217,35 @@ function SizeBar() {
                 onMouseMove={() => setCatelogy(true)}
                 onMouseOut={() => setCatelogy(false)}
               >
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E]">
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E] ${
+                    career && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(false);
+                    setCareer(true);
+                    setTurn(false);
+                    setTopic(false);
+                    setOrganization(false);
+                  }}
+                >
                   Ngành nghề
-                </li>
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E]">
+                </Link>
+                <Link
+                  to="/"
+                  className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E]"
+                >
                   Khóa
-                </li>
-                <li className="flex h-[40px] items-center justify-between hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4">
+                </Link>
+                <Link
+                  to="/"
+                  className="flex h-[40px] items-center justify-between hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4"
+                >
                   Lớp
-                </li>
+                </Link>
               </ul>
             )}
             <li

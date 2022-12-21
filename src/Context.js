@@ -5,7 +5,8 @@ export const ThemeContext = React.createContext();
 
 function Context({ children }) {
   const [auth, setAuth] = useState(localStorage.getItem('token'));
-  return <ThemeContext.Provider value={{ auth, setAuth }}>{children}</ThemeContext.Provider>;
+  const [edit, setEdit] = useState(false);
+  return <ThemeContext.Provider value={{ auth, setAuth, edit, setEdit }}>{children}</ThemeContext.Provider>;
 }
 
 export default Context;

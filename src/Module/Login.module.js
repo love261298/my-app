@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../Context';
 import { login1, login2 } from '../asset/index';
 
-function Login() {
+function LoginModule() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { setAuth } = useContext(ThemeContext);
@@ -23,7 +23,7 @@ function Login() {
     }
     axios
       .post(
-        `https://training.bks.center/api/auth/login`,
+        `https://training.bks.center/api/auth/Module`,
         {},
         {
           params: {
@@ -82,4 +82,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginModule;

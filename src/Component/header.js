@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userCircle, circleStart, bellSolid, logOut } from '../asset';
 import { ThemeContext } from '../Context';
 
@@ -30,18 +30,18 @@ function Header(props) {
       </div>
       {popup && (
         <div
-          className="fixed top-[0] left-[0] w-screen h-screen max-w-screen max-h-screen"
+          className="fixed top-[0] left-[0] w-screen h-screen max-w-screen max-h-screen z-[1]"
           onClick={(e) => handleParentClick(e)}
         >
           <div className="absolute top-[68px] right-[45px] w-[260px] bg-[#FFFFFF] rounded-lg shadow-lg">
             <div className="text-center border-b">
               <img src={userCircle} alt="anh" className="w-[70px] mt-4 mb-[18px] block mx-auto" />
               <div className="text-center text-[#172B4D] font-medium text-[16px] mb-[22px]">Nguyễn Văn A</div>
-              <button className="py-2.5 px-4 border border-[#E2E3E9] rounded-[3px] mb-6 hover:opacity-60">
+              <Link to="/" className="py-2.5 px-4 border border-[#E2E3E9] rounded-[3px] mb-6 hover:opacity-60">
                 Quản lý tài khoản
-              </button>
+              </Link>
             </div>
-            <div className="flex px-3 py-4 hover:opacity-60 cursor-pointer" onClick={handleLogOut}>
+            <div className="flex px-3 py-4 hover:opacity-60 cursor-pointer items-center" onClick={handleLogOut}>
               <img src={logOut} alt="anh" className="mr-2.5" />
               <span className="text-[#172B4D]">Đăng xuất</span>
             </div>

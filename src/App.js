@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeContext } from './Context';
-import Dashboard from './Module/Dashboard';
-import Login from './Module/Login';
+import LoginModule from './Module/Login.module';
+import OrganizationModule from './Module/Organization.module';
 
 function App() {
   const { auth } = useContext(ThemeContext);
   return (
     <Routes>
-      <Route path="*" element={auth ? <Dashboard /> : <Login />} />
+      <Route path="/organization" element={auth ? <OrganizationModule /> : <LoginModule />} />
+      <Route path="*" element={auth ? <OrganizationModule /> : <LoginModule />} />
     </Routes>
   );
 }

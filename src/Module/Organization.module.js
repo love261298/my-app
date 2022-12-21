@@ -5,7 +5,7 @@ import NavBar from '../Component/navBar';
 import SizeBar from '../Component/sizeBar';
 import Organization from '../Component/organization';
 
-function Dashboard() {
+function OrganizationModule() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     console.log(token);
@@ -22,11 +22,11 @@ function Dashboard() {
       <SizeBar />
       <div className="grow flex flex-col">
         <Header title="Trường Đại Học A" />
-        <NavBar title="Tổ chức" check={false}/>
+        <NavBar title="Tổ chức" check={false} />
         <Organization />
       </div>
     </div>
   );
 }
 
-export default Dashboard;
+export default OrganizationModule;
