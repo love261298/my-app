@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import Dashboard from './Component/Dashboard';
-import Login from './Component/Login';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeContext } from './Context';
+import Dashboard from './Module/Dashboard';
+import Login from './Module/Login';
 
 function App() {
   const { auth } = useContext(ThemeContext);
