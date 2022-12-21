@@ -64,6 +64,7 @@ function SizeBar() {
                     setTurn(false);
                     setTopic(false);
                     setOrganization(false);
+                    setCatelogy(true);
                   }}
                 >
                   Ngành nghề
@@ -81,6 +82,7 @@ function SizeBar() {
                     setTurn(false);
                     setTopic(false);
                     setOrganization(false);
+                    setCatelogy(true);
                   }}
                 >
                   Khóa
@@ -98,6 +100,7 @@ function SizeBar() {
                     setTurn(false);
                     setTopic(false);
                     setOrganization(false);
+                    setCatelogy(true);
                   }}
                 >
                   Lớp
@@ -123,6 +126,7 @@ function SizeBar() {
                     turn && active
                   }`}
                   onClick={() => {
+                    setProject(true);
                     setMemeber(false);
                     setClass_(false);
                     setCourse(false);
@@ -140,6 +144,7 @@ function SizeBar() {
                     topic && active
                   }`}
                   onClick={() => {
+                    setProject(true);
                     setMemeber(false);
                     setClass_(false);
                     setCourse(false);
@@ -181,29 +186,30 @@ function SizeBar() {
         <div className="w-[60px] text-[#42526E] border-r border-[#EBEBEB] relative">
           <img src={iconHome} alt="anh" className="h-[81px] block mx-auto w-[50px]" />
           <ul className="pt-[77px] px-2">
-            <Link
-              to="/"
-              className={`h-[20px] mb-[38px] ${memeber && active}`}
-              onClick={() => {
-                setMemeber(true);
-                setClass_(false);
-                setCourse(false);
-                setCareer(false);
-                setTurn(false);
-                setTopic(false);
-                setOrganization(false);
-              }}
-            >
+            <li className="h-[20px] mb-[38px]">
               <img
                 src={Iconly}
                 alt="anh"
-                className="mx-auto p-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] rounded cursor-pointer"
+                className={`mx-auto p-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] rounded cursor-pointer ${
+                  memeber && active
+                }`}
+                onClick={() => {
+                  setMemeber(true);
+                  setClass_(false);
+                  setCourse(false);
+                  setCareer(false);
+                  setTurn(false);
+                  setTopic(false);
+                  setOrganization(false);
+                }}
               />
-            </Link>
+            </li>
             <li
               className="h-[20px] mb-[38px]  relative before:content-[''] before:block before:absolute before:w-full before:h-[43px] before:left-8"
-              onMouseMove={() => setCatelogy(true)}
-              onMouseOut={() => setCatelogy(false)}
+              onClick={() => {
+                setCatelogy(true);
+                setProject(false);
+              }}
             >
               <img
                 src={bifile}
@@ -212,11 +218,7 @@ function SizeBar() {
               />
             </li>
             {catelogy && (
-              <ul
-                className="absolute w-[138px] left-full shadow-2xl rounded-4 top-[214px] font-medium"
-                onMouseMove={() => setCatelogy(true)}
-                onMouseOut={() => setCatelogy(false)}
-              >
+              <ul className="absolute w-[138px] left-full shadow-2xl rounded-4 top-[214px] font-medium">
                 <Link
                   to="/"
                   className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E] ${
@@ -230,19 +232,44 @@ function SizeBar() {
                     setTurn(false);
                     setTopic(false);
                     setOrganization(false);
+                    setCatelogy(true);
                   }}
                 >
                   Ngành nghề
                 </Link>
                 <Link
                   to="/"
-                  className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E]"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E] ${
+                    course && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(true);
+                    setCareer(false);
+                    setTurn(false);
+                    setTopic(false);
+                    setOrganization(false);
+                    setCatelogy(true);
+                  }}
                 >
                   Khóa
                 </Link>
                 <Link
                   to="/"
-                  className="flex h-[40px] items-center justify-between hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4"
+                  className={`flex h-[40px] items-center justify-between hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4 ${
+                    class_ && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(true);
+                    setCourse(false);
+                    setCareer(false);
+                    setTurn(false);
+                    setTopic(false);
+                    setOrganization(false);
+                    setCatelogy(true);
+                  }}
                 >
                   Lớp
                 </Link>
@@ -250,8 +277,10 @@ function SizeBar() {
             )}
             <li
               className="h-[20px] mb-[38px] relative before:content-[''] before:block before:absolute before:w-full before:h-[43px] before:left-8"
-              onMouseMove={() => setProject(true)}
-              onMouseOut={() => setProject(false)}
+              onClick={() => {
+                setProject(true);
+                setCatelogy(false);
+              }}
             >
               <img
                 src={material}
@@ -260,17 +289,43 @@ function SizeBar() {
               />
             </li>
             {project && (
-              <ul
-                onMouseMove={() => setProject(true)}
-                onMouseOut={() => setProject(false)}
-                className="absolute w-[138px] left-full shadow-2xl rounded-4 top-[214px] font-medium"
-              >
-                <li className="flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4">
+              <ul className="absolute w-[138px] left-full shadow-2xl rounded-4 top-[214px] font-medium">
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4 ${
+                    turn && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(false);
+                    setCareer(false);
+                    setTurn(true);
+                    setTopic(false);
+                    setOrganization(false);
+                    setProject(true);
+                  }}
+                >
                   Quản lý đợt
-                </li>
-                <li className="flex h-[40px] items-center justify-between hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4">
+                </Link>
+                <Link
+                  to="/"
+                  className={`flex h-[40px] items-center justify-between hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer text-[#42526E] rounded-4 ${
+                    topic && active
+                  }`}
+                  onClick={() => {
+                    setMemeber(false);
+                    setClass_(false);
+                    setCourse(false);
+                    setCareer(false);
+                    setTurn(false);
+                    setTopic(true);
+                    setOrganization(false);
+                    setProject(true);
+                  }}
+                >
                   Kho đề tài
-                </li>
+                </Link>
               </ul>
             )}
             <li className="h-[20px] mb-[38px]">
