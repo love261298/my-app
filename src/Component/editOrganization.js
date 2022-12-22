@@ -9,7 +9,7 @@ function EditOrganization() {
   const [phone, setPhone] = useState('0965486643');
   const [website, setWebsite] = useState('https:abc.vn');
   const [address, setAddress] = useState('Địa chỉ A');
-  const { edit, setEdit } = useContext(ThemeContext);
+  const { edit, setEdit, popupSerImage, setPopupSerImage } = useContext(ThemeContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name === '' || email === '' || taxCode === '' || phone === '' || website === '' || address === '') {
@@ -22,7 +22,36 @@ function EditOrganization() {
     <form className="w-full h-full bg-[#F9F9F9] p-[24px_24px_0px_146px] block" onSubmit={(e) => handleSubmit(e)}>
       <div className="relative flex items-center">
         <img src={iconHome} alt="anh" className="w-[120px] mr-[40px]" />
-        <img src={camera} alt="anh" className="w-[32px] absolute bottom-2 left-[90px]" />
+        <img
+          src={camera}
+          alt="anh"
+          className="w-[32px] absolute bottom-2 left-[90px] cursor-pointer hover:opacity-75"
+          onClick={() => setPopupSerImage(!popupSerImage)}
+        />
+        {popupSerImage && (
+          <>
+            <div
+              className="fixed top-0 left-0 w-screen h-screen"
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  setPopupSerImage(!popupSerImage);
+                }
+              }}
+            ></div>
+            <div className="absolute top-[32px] left-[132px] text-[#172B4D] p-[6px_10px] rounded shadow-[1px_4px_4px_rgba(0,0,0,0.15)] bg-[#fff]">
+              <label
+                for="upload-photo"
+                className="block text-center p-[8px_16px] rounded hover:bg-[#F4F5F7] hover:text-[#1890FF] cursor-pointer"
+              >
+                Chọn ảnh
+              </label>
+              <input type="file" id="upload-photo" className="absolute top-[12px] -left-[32px] invisible" />
+              <button className="block text-center p-[8px_16px] rounded hover:bg-[#F4F5F7] hover:text-[#1890FF] w-full">
+                Xóa
+              </button>
+            </div>
+          </>
+        )}
         <div className="font-normal text-[#9EA3A9] grow text-[14px]">
           <div className="text-[#172B4D] font-medium mb-2">Tên trường</div>
           <input

@@ -15,6 +15,8 @@ import dropdown from './dropdown.svg';
 import Rectangle from './Rectangle.svg';
 import Vector from './Vector.svg';
 import camera from './camera.svg';
+import info from './Info.svg';
+import key from './key.svg';
 
 export {
   login1,
@@ -34,4 +36,6 @@ export {
   Rectangle,
   Vector,
   camera,
+  info,
+  key,
 };

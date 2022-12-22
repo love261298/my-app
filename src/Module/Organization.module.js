@@ -19,7 +19,7 @@ function OrganizationModule() {
   }, []);
   return (
     <div className="flex w-screen max-w-screen min-h-screen">
-      <SizeBar />
+      <SizeBar managerAcount={false} organization={true}/>
       <div className="grow flex flex-col">
         <Header title="Trường Đại Học A" />
         <NavBar title="Tổ chức" check={false} />

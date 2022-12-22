@@ -7,9 +7,6 @@ function Header(props) {
   const [popup, setPopup] = useState(false);
   const { setAuth } = useContext(ThemeContext);
   const navigator = useNavigate();
-  const handleCLick = () => {
-    setPopup(!popup);
-  };
   const handleParentClick = (e) => {
     if (e.target === e.currentTarget) {
       setPopup(!popup);
@@ -26,7 +23,12 @@ function Header(props) {
       <div className="flex">
         <img src={circleStart} alt="anh" className="ml-4 hover:opacity-60 cursor-pointer" />
         <img src={bellSolid} className="w-[20px] ml-4 hover:opacity-60 cursor-pointer" alt="anh" />
-        <img src={userCircle} alt="anh" className="ml-4 hover:opacity-60 cursor-pointer" onClick={handleCLick} />
+        <img
+          src={userCircle}
+          alt="anh"
+          className="ml-4 hover:opacity-60 cursor-pointer"
+          onClick={() => setPopup(!popup)}
+        />
       </div>
       {popup && (
         <div
@@ -37,7 +39,7 @@ function Header(props) {
             <div className="text-center border-b">
               <img src={userCircle} alt="anh" className="w-[70px] mt-4 mb-[18px] block mx-auto" />
               <div className="text-center text-[#172B4D] font-medium text-[16px] mb-[22px]">Nguyễn Văn A</div>
-              <Link to="/" className="py-2.5 px-4 border border-[#E2E3E9] rounded-[3px] mb-6 hover:opacity-60">
+              <Link to="/manage-acount" className="py-2.5 px-4 border border-[#E2E3E9] rounded-[3px] mb-6 hover:opacity-60 inline-block">
                 Quản lý tài khoản
               </Link>
             </div>

@@ -1,12 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { camera, iconHome } from '../asset';
 import { ThemeContext } from '../Context';
 import EditOrganization from './editOrganization';
 
 function Organization() {
-  const { edit, setEdit } = useContext(ThemeContext);
-  const [popup, setPopup] = useState(false);
-  const [image, setImage] = useState();
+  const { edit, setEdit, popupSerImage, setPopupSerImage } = useContext(ThemeContext);
   return (
     <div className="grow p-[16px_24px_24px_24px]">
       {!edit ? (
@@ -18,44 +16,39 @@ function Organization() {
                 src={camera}
                 alt="anh"
                 className="w-[32px] absolute bottom-2 left-[90px] cursor-pointer hover:opacity-75"
-                onClick={() => setPopup(!popup)}
+                onClick={() => setPopupSerImage(!popupSerImage)}
               />
               <span className="font-normal text-[#9EA3A9]">Trường Đại Học A</span>
-              <button
-                className="px-4 py-2 border border-[#1890FF] rounded absolute top-0 right-0 font-[14px] text-[#1890FF]"
-                onClick={() => setEdit(!edit)}
-              >
-                Sửa
-              </button>
-              {popup && (
-                <div
-                  className="fixed top-0 left-0 w-screen h-screen"
-                  onClick={(e) => {
-                    if (e.target === e.currentTarget) {
-                      setPopup(!popup);
-                    }
-                  }}
-                >
-                  <div className="absolute top-[200px] left-[512px] text-[#172B4D] p-[6px_10px] rounded shadow-[1px_4px_4px_rgba(0,0,0,0.15)] bg-[#fff]">
+              {popupSerImage && (
+                <>
+                  <div
+                    className="fixed top-0 left-0 w-screen h-screen"
+                    onClick={(e) => {
+                      if (e.target === e.currentTarget) {
+                        setPopupSerImage(!popupSerImage);
+                      }
+                    }}
+                  ></div>
+                  <div className="absolute top-[32px] left-[132px] text-[#172B4D] p-[6px_10px] rounded shadow-[1px_4px_4px_rgba(0,0,0,0.15)] bg-[#fff]">
                     <label
                       for="upload-photo"
                       className="block text-center p-[8px_16px] rounded hover:bg-[#F4F5F7] hover:text-[#1890FF] cursor-pointer"
                     >
                       Chọn ảnh
                     </label>
-                    <input
-                      type="file"
-                      id="upload-photo"
-                      className="absolute top-[12px] -left-[32px] invisible"
-                      value={image}
-                      onChange={(e) => setImage(e.target.event.files[0])}
-                    />
+                    <input type="file" id="upload-photo" className="absolute top-[12px] -left-[32px] invisible" />
                     <button className="block text-center p-[8px_16px] rounded hover:bg-[#F4F5F7] hover:text-[#1890FF] w-full">
                       Xóa
                     </button>
                   </div>
-                </div>
+                </>
               )}
+              <button
+                className="px-4 py-2 border border-[#1890FF] rounded absolute top-0 right-0 font-[14px] text-[#1890FF]"
+                onClick={() => setEdit(!edit)}
+              >
+                Sửa
+              </button>
             </div>
             <div className="text-[#172B4D] text-medium text-[20px] pt-[40px] pb-[24px]">Thông tin trường</div>
             <ul className="flex flex-wrap flex-auto">

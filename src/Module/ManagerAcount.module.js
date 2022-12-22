@@ -5,7 +5,7 @@ import NavBar from '../Component/navBar';
 import SizeBar from '../Component/sizeBar';
 import Organization from '../Component/organization';
 
-function ManagerAcount() {
+function ManagerAcountModule() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     console.log(token);
@@ -19,14 +19,14 @@ function ManagerAcount() {
   }, []);
   return (
     <div className="flex w-screen max-w-screen min-h-screen">
-      <SizeBar />
+      <SizeBar managerAcount={true}/>
       <div className="grow flex flex-col">
         <Header title="Trường Đại Học A" />
-        <NavBar title="Tổ chức" check={false} />
+        <NavBar title="Thông tin cá nhân" check={false} />
         <Organization />
       </div>
     </div>
   );
 }
 
-export default ManagerAcount;
+export default ManagerAcountModule;
