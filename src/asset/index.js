@@ -17,8 +17,15 @@ import Vector from './Vector.svg';
 import camera from './camera.svg';
 import info from './Info.svg';
 import key from './key.svg';
+import mdi from './mdi.svg';
+import upDown from './upDown.svg';
+import setting from './setting.svg';
+import arrowLeft from './arrowLeft.svg';
+import arrowRight from './arrowRight.svg';
 
 export {
+  arrowLeft,
+  arrowRight,
   login1,
   login2,
   userCircle,
@@ -38,4 +45,7 @@ export {
   camera,
   info,
   key,
+  mdi,
+  upDown,
+  setting,
 };

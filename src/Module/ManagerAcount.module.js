@@ -8,7 +8,6 @@ import Organization from '../Component/organization';
 function ManagerAcountModule() {
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log(token);
     const headers = {
       Authorization: `Bearer ${token}`,
     };
@@ -19,11 +18,11 @@ function ManagerAcountModule() {
   }, []);
   return (
     <div className="flex w-screen max-w-screen min-h-screen">
-      <SizeBar managerAcount={true}/>
+      <SizeBar managerAcount={true} infomation={true}/>
       <div className="grow flex flex-col">
         <Header title="Trường Đại Học A" />
         <NavBar title="Thông tin cá nhân" check={false} />
-        <Organization />
+        <Organization infomation={true}/>
       </div>
     </div>
   );

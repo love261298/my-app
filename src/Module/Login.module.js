@@ -23,7 +23,7 @@ function LoginModule() {
     }
     axios
       .post(
-        `https://training.bks.center/api/auth/Module`,
+        `https://training.bks.center/api/auth/login`,
         {},
         {
           params: {
@@ -36,7 +36,7 @@ function LoginModule() {
         if (res.data.token) {
           localStorage.setItem('token', res.data.token);
           setAuth(true);
-          navigator('/');
+          navigator('manage-member');
         }
       })
       .catch((err) => console.log(err));
@@ -72,7 +72,7 @@ function LoginModule() {
               }}
             />
           </div>
-          {validate && <div>Email or PassWord Faild!</div>}
+          {validate && <div className="text-red-600 pb-4 text-center">Email or PassWord Faild!</div>}
           <button className="block w-full bg-[#1890FF] text-[#fff] h-[40px] rounded-lg" type="submit">
             Đăng Nhập
           </button>

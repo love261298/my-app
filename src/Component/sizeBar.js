@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { dropdown, Iconly, bifile, material, fluent, iconHome, Vector, Rectangle, info } from '../asset';
+import { ThemeContext } from '../Context';
 
 function SizeBar(props) {
   const navigator = useNavigate();
@@ -14,9 +15,10 @@ function SizeBar(props) {
   const [career, setCareer] = useState(false);
   const [course, setCourse] = useState(false);
   const [class_, setClass_] = useState(false);
-  const [memeber, setMemeber] = useState(false);
-  const [infomation, setInfomation] = useState(false);
+  const [memeber, setMemeber] = useState(props.memeber || false);
+  const [infomation, setInfomation] = useState(props.infomation || false);
   const [changePassWord, setChangePassWord] = useState(false);
+  const { setEdit, setPassWord } = useContext(ThemeContext);
   return (
     <>
       {!compact ? (
@@ -26,7 +28,11 @@ function SizeBar(props) {
               src={iconHome}
               alt="anh"
               className="h-[81px] block mx-auto w-[50px] cursor-pointer"
-              onClick={() => navigator('/organization')}
+              onClick={() => {
+                navigator('/organization');
+                setEdit(false);
+                setPassWord(false);
+              }}
             />
             <div className="pt-[24px] pb-[30px] text-center font-medium font-[#172B4D]">Quản lý tài khoản</div>
             <ul className="px-4">
@@ -37,6 +43,7 @@ function SizeBar(props) {
                 onClick={() => {
                   setInfomation(true);
                   setChangePassWord(false);
+                  setPassWord(false);
                 }}
               >
                 <img src={info} alt="anh" className="pr-2" />
@@ -49,6 +56,7 @@ function SizeBar(props) {
                 onClick={() => {
                   setInfomation(false);
                   setChangePassWord(true);
+                  setPassWord(true);
                 }}
               >
                 <img src={fluent} alt="anh" className="pr-2" />
@@ -71,11 +79,15 @@ function SizeBar(props) {
               src={iconHome}
               alt="anh"
               className="h-[81px] block mx-auto w-[50px] cursor-pointer"
-              onClick={() => navigator('/organization')}
+              onClick={() => {
+                navigator('/organization');
+                setEdit(false);
+                setPassWord(false);
+              }}
             />
             <ul className="pt-[42px] px-4">
               <Link
-                to="/"
+                to="/manage-member"
                 className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
                   memeber && active
                 }`}
@@ -250,10 +262,14 @@ function SizeBar(props) {
             src={iconHome}
             alt="anh"
             className="h-[81px] block mx-auto w-[50px] cursor-pointer"
-            onClick={() => navigator('/organization')}
+            onClick={() => {
+              navigator('/organization');
+              setEdit(false);
+              setPassWord(false);
+            }}
           />
           <ul className="pt-[77px] px-2">
-            <Link to="/" className="h-[20px] mb-[38px]">
+            <Link to="/manage-member" className="h-[20px] mb-[38px]">
               <img
                 src={Iconly}
                 alt="anh"
@@ -309,7 +325,11 @@ function SizeBar(props) {
             src={iconHome}
             alt="anh"
             className="h-[81px] block mx-auto w-[50px] cursor-pointer"
-            onClick={() => navigator('/organization')}
+            onClick={() => {
+              navigator('/organization');
+              setEdit(false);
+              setPassWord(false);
+            }}
           />
           <ul className="pt-[77px] px-2">
             <Link to="/" className="h-[20px] mb-[38px] list-item">
