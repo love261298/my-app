@@ -443,7 +443,7 @@ const Content = (prop) => {
           <div className="h-[58px] flex items-center text-[14px] text-[#172B4D] border">
             <div className="flex items-center border-r">
               <span className="w-[52px] leading-[58px] border-r text-center">{index + 1}</span>
-              <div className="w-[52px]">
+              <div className="w-[52px] hover:opacity-80 cursor-pointer">
                 <img src={setting} alt="anh" className="w-[32px] block mx-auto" />
               </div>
             </div>

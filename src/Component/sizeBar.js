@@ -29,7 +29,7 @@ function SizeBar(props) {
               alt="anh"
               className="h-[81px] block mx-auto w-[50px] cursor-pointer"
               onClick={() => {
-                navigator('/organization');
+                navigator('manage-member');
                 setEdit(false);
                 setPassWord(false);
               }}
@@ -80,7 +80,7 @@ function SizeBar(props) {
               alt="anh"
               className="h-[81px] block mx-auto w-[50px] cursor-pointer"
               onClick={() => {
-                navigator('/organization');
+                navigator('manage-member');
                 setEdit(false);
                 setPassWord(false);
               }}
@@ -263,7 +263,7 @@ function SizeBar(props) {
             alt="anh"
             className="h-[81px] block mx-auto w-[50px] cursor-pointer"
             onClick={() => {
-              navigator('/organization');
+              navigator('manage-member');
               setEdit(false);
               setPassWord(false);
             }}
@@ -326,7 +326,7 @@ function SizeBar(props) {
             alt="anh"
             className="h-[81px] block mx-auto w-[50px] cursor-pointer"
             onClick={() => {
-              navigator('/organization');
+              navigator('manage-member'); 
               setEdit(false);
               setPassWord(false);
             }}

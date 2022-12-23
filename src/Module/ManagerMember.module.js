@@ -26,7 +26,7 @@ export default function ManagerMemberModule() {
       <div className="grow flex flex-col">
         <Header title="Trường Đại Học A" />
         <NavBar title="Thành viên" check={true} />
-        <ManagerMember data={data} />
+        <ManagerMember data={true} />
       </div>
     </div>
   );
