@@ -22,8 +22,14 @@ import upDown from './upDown.svg';
 import setting from './setting.svg';
 import arrowLeft from './arrowLeft.svg';
 import arrowRight from './arrowRight.svg';
+import quanLy from './quanly.svg';
+import giangVien from './giangVien.svg';
+import sinhVien from './sinhVien.svg';
 
 export {
+  quanLy,
+  giangVien,
+  sinhVien,
   arrowLeft,
   arrowRight,
   login1,

@@ -1,161 +1,181 @@
 import { useState } from 'react';
 import { arrowLeft, arrowRight, setting } from '../asset';
+import Detail from './Detail';
 
 const Content = (prop) => {
   const [sex, setSex] = useState('M');
   const [currentPage, setCurrentPage] = useState(1);
   const data = [
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Quân',
+      name: 'Hoang Minh Quân',
       phone: '0965486642',
       email: '456@gmail.com',
       address: 'Địa chỉ B',
       sex: 'F',
       birth: '26/12/1998',
+      rank: 'manager',
     },
     {
-      name: 'Minh',
+      name: 'Dinh Quang Toan',
       phone: '0965486641',
       email: '789@gmail.com',
       address: 'Địa chỉ C',
       sex: 'M',
       birth: '26/12/1999',
+      rank: 'teacher',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Quân',
+      name: 'Hoang Minh Quân',
       phone: '0965486642',
       email: '456@gmail.com',
       address: 'Địa chỉ B',
       sex: 'F',
       birth: '26/12/1998',
+      rank: 'manager',
     },
     {
       name: 'asdasd',
@@ -164,86 +184,97 @@ const Content = (prop) => {
       address: 'Địa chỉ C',
       sex: 'M',
       birth: '26/12/1999',
+      rank: 'teacher',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Thuc',
+      name: 'Pham Duy Thuc',
       phone: '0965486643',
       email: '123@gmail.com',
       address: 'Địa chỉ A',
       sex: 'M',
       birth: '26/12/2000',
+      rank: 'student',
     },
     {
-      name: 'Quân',
+      name: 'Hoang Minh Quân',
       phone: '0965486642',
       email: '456@gmail.com',
       address: 'Địa chỉ B',
       sex: 'F',
       birth: '26/12/1998',
+      rank: 'manager',
     },
     {
-      name: 'Toan',
+      name: 'Dinh Quang Toan',
       phone: '0965486641',
       email: '789@gmail.com',
       address: 'Địa chỉ C',
       sex: 'M',
       birth: '26/12/1999',
+      rank: 'teacher',
     },
     {
       name: 'asdasdasdas',
@@ -252,6 +283,7 @@ const Content = (prop) => {
       address: 'Địa chỉ C',
       sex: 'M',
       birth: '26/12/1999',
+      rank: 'teacher',
     },
   ];
   const active = 'border border-[#1890FF] rounded';
@@ -405,7 +437,9 @@ const Content = (prop) => {
     <>
       <div className="h-[48px] flex items-center text-[14px] text-[#172B4D] border border-[#F0F0F0]">
         <div className="flex items-center w-[104px]">
-          <span className="p-[8px_16px] text-[#1890FF] border border-[#E2E3E9] rounded mx-auto">Tìm kiếm</span>
+          <span className="p-[8px_16px] text-[#1890FF] border border-[#E2E3E9] rounded mx-auto cursor-pointer hover:opacity-80">
+            Tìm kiếm
+          </span>
         </div>
         <ul className="flex items-center justify-between grow">
           <li className="flex items-center justify-center w-1/5">
@@ -440,12 +474,11 @@ const Content = (prop) => {
       </div>
       <div className="grow">
         {data.slice((currentPage - 1) * 10, (currentPage - 1) * 10 + 10).map((el, index) => (
-          <div className="h-[58px] flex items-center text-[14px] text-[#172B4D] border">
+          <div key={index} className="h-[58px] flex items-center text-[14px] text-[#172B4D] border">
             <div className="flex items-center border-r">
               <span className="w-[52px] leading-[58px] border-r text-center">{index + 1}</span>
-              <div className="w-[52px] hover:opacity-80 cursor-pointer">
-                <img src={setting} alt="anh" className="w-[32px] block mx-auto" />
-              </div>
+              <EditAndDelete data={el} index={index} />
+              {console.log('render')}
             </div>
             <ul className="flex items-center justify-between grow">
               <li className="border-r flex items-center justify-center w-1/5">
@@ -484,3 +517,36 @@ const Content = (prop) => {
 };
 
 export default Content;
+
+const EditAndDelete = (props) => {
+  const [popUp, setPopUp] = useState(false);
+  const [detail, setDetail] = useState(false);
+  const handleDetail = () => {
+    setDetail(!detail);
+  };
+  return (
+    <div className="w-[52px] cursor-pointer relative">
+      <img
+        src={setting}
+        alt="anh"
+        className="w-[32px] block mx-auto hover:opacity-80"
+        onClick={() => setPopUp(!popUp)}
+      />
+      {popUp && (
+        <div className="absolute bg-[#FFFFFF] rounded shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border border-[rgba(196,196,196,0.25)] -top-[18px] left-full">
+          <div className="w-[76px] leading-[32px] text-center hover:bg-[#E2E3E9]">Sửa</div>
+          <div
+            className="w-[76px] leading-[32px] text-center hover:bg-[#E2E3E9]"
+            onClick={() => {
+              setDetail(!detail);
+              setPopUp(!popUp);
+            }}
+          >
+            Chi tiết
+          </div>
+        </div>
+      )}
+      {detail && <Detail data={props.data} handleDetail={handleDetail} />}
+    </div>
+  );
+};
