@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Download, giangVien, quanLy, sinhVien, Upload } from '../asset';
+import AddOrEditMember from './AddOrEditMember';
 
 function NavBar(props) {
   const [addMember, setAddMember] = useState(false);
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState(null);
   return (
     <div className="h-[46px] shadow-[0px_1px_16px_rgba(0,0,0,0.1)] flex items-center justify-between px-10">
       <div className="font-semibold">
@@ -20,6 +21,15 @@ function NavBar(props) {
           </button>
           <img src={Upload} alt="anh" className="ml-2" />
           <img src={Download} alt="anh" className="ml-2" />
+          {!addMember && title && (
+            <AddOrEditMember
+              title={title}
+              handleClose={() => {
+                setAddMember(false);
+                setTitle(null);
+              }}
+            />
+          )}
           {addMember && (
             <div
               className="fixed w-screen h-screen bg-[rgba(66,82,110,0.4)] top-0 left-0 z-10"
@@ -56,13 +66,16 @@ function NavBar(props) {
                 <div className="py-3 px-6 flex justify-end">
                   <button
                     className="p-[8px_16px] border rounded hover:opacity-70"
-                    onClick={() => setAddMember(!addMember)}
+                    onClick={() => {
+                      setAddMember(!addMember);
+                      setTitle(null);
+                    }}
                   >
                     Hủy
                   </button>
                   <button
                     className="p-[8px_16px] rounded hover:opacity-70 ml-3 bg-[#1890FF] text-[#FFFFFF]"
-                    onClick={() => console.log(title)}
+                    onClick={() => setAddMember(!addMember)}
                   >
                     Tiếp tục
                   </button>

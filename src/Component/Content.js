@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { arrowLeft, arrowRight, setting } from '../asset';
+import AddOrEditMember from './AddOrEditMember';
 import Detail from './Detail';
 
 const Content = (prop) => {
@@ -521,9 +522,7 @@ export default Content;
 const EditAndDelete = (props) => {
   const [popUp, setPopUp] = useState(false);
   const [detail, setDetail] = useState(false);
-  const handleDetail = () => {
-    setDetail(!detail);
-  };
+  const [edit, setEdit] = useState(false);
   return (
     <div className="w-[52px] cursor-pointer relative">
       <img
@@ -534,7 +533,15 @@ const EditAndDelete = (props) => {
       />
       {popUp && (
         <div className="absolute bg-[#FFFFFF] rounded shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border border-[rgba(196,196,196,0.25)] -top-[18px] left-full">
-          <div className="w-[76px] leading-[32px] text-center hover:bg-[#E2E3E9]">Sửa</div>
+          <div
+            className="w-[76px] leading-[32px] text-center hover:bg-[#E2E3E9]"
+            onClick={() => {
+              setEdit(!edit);
+              setPopUp(!popUp);
+            }}
+          >
+            Sửa
+          </div>
           <div
             className="w-[76px] leading-[32px] text-center hover:bg-[#E2E3E9]"
             onClick={() => {
@@ -546,7 +553,8 @@ const EditAndDelete = (props) => {
           </div>
         </div>
       )}
-      {detail && <Detail data={props.data} handleDetail={handleDetail} />}
+      {edit && <AddOrEditMember edit={true} data={props.data} handleEdit={() => setEdit(!edit)} />}
+      {detail && <Detail data={props.data} handleDetail={() => setDetail(!detail)} />}
     </div>
   );
 };
