@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { camera, iconHome, userCircle } from '../asset';
-import { ThemeContext } from '../Context';
+import { ThemeContext } from '../core/Context';
 import EditOrganization from './editOrganization';
 
 function Organization(props) {

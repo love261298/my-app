@@ -17,7 +17,7 @@ const AddOrEditMember = (props) => {
   console.log(props.title);
   return (
     <div
-      className="fixed top-0 left-0 w-screen h-screen bg-[rgba(66,82,110,0.4)] z-10 overflow-y-auto"
+      className="fixed top-0 left-0 w-screen h-screen bg-[rgba(66,82,110,0.4)]"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           props.handleClose();

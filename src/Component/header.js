@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { userCircle, circleStart, bellSolid, logOut } from '../asset';
-import { ThemeContext } from '../Context';
+import { ThemeContext } from '../core/Context';
 
 function Header(props) {
   const [popup, setPopup] = useState(false);

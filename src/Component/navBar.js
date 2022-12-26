@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Download, giangVien, quanLy, sinhVien, Upload } from '../asset';
+import { giangVien, quanLy, sinhVien } from '../asset';
 import AddOrEditMember from './AddOrEditMember';
 
 function NavBar(props) {
@@ -17,10 +17,8 @@ function NavBar(props) {
             className="first-letter:mr-[11px] px-3 bg-[#1890FF] text-[#ffffff] rounded-[3px] h-[32px] ml-2 hover:opacity-80 cursor-pointer"
             onClick={() => setAddMember(!addMember)}
           >
-            + Thêm thành viên
+            + Thêm {props.title}
           </button>
-          <img src={Upload} alt="anh" className="ml-2" />
-          <img src={Download} alt="anh" className="ml-2" />
           {!addMember && title && (
             <AddOrEditMember
               title={title}

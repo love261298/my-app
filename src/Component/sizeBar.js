@@ -1,18 +1,18 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { dropdown, Iconly, bifile, material, fluent, iconHome, Vector, Rectangle, info } from '../asset';
-import { ThemeContext } from '../Context';
+import { dropdown, Iconly, bifile, material, fluent, Vector, Rectangle, info, iconHome } from '../asset';
+import { ThemeContext } from '../core/Context';
 
 function SizeBar(props) {
   const navigator = useNavigate();
-  const [catelogy, setCatelogy] = useState(false);
+  const [catelogy, setCatelogy] = useState(props.career || false);
   const [project, setProject] = useState(false);
   const [compact, setCompact] = useState(false);
   const active = 'bg-[#F0F7FF] text-[#1890FF]';
   const [organization, setOrganization] = useState(props.organization || false);
   const [topic, setTopic] = useState(false);
   const [turn, setTurn] = useState(false);
-  const [career, setCareer] = useState(false);
+  const [career, setCareer] = useState(props.career || false);
   const [course, setCourse] = useState(false);
   const [class_, setClass_] = useState(false);
   const [memeber, setMemeber] = useState(props.memeber || false);
@@ -118,7 +118,7 @@ function SizeBar(props) {
               {catelogy && (
                 <ul>
                   <Link
-                    to="/"
+                    to="/career"
                     className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer ${
                       career && active
                     }`}
@@ -326,7 +326,7 @@ function SizeBar(props) {
             alt="anh"
             className="h-[81px] block mx-auto w-[50px] cursor-pointer"
             onClick={() => {
-              navigator('manage-member'); 
+              navigator('manage-member');
               setEdit(false);
               setPassWord(false);
             }}
@@ -382,7 +382,7 @@ function SizeBar(props) {
                 }}
               >
                 <Link
-                  to="/"
+                  to="/career"
                   className={`flex h-[40px] items-center justify-between mb-2 hover:bg-[#F0F7FF] hover:text-[#1890FF] px-3 rounded cursor-pointer rounded-4 text-[#42526E] ${
                     career && active
                   }`}

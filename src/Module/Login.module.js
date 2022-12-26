@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from '../Context';
-import { login1, login2 } from '../asset/index';
+import { login1, login2 } from '../asset';
+import { ThemeContext } from '../core/Context';
 
 function LoginModule() {
   const [username, setUsername] = useState('');
